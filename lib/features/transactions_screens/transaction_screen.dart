@@ -7,6 +7,7 @@ import 'package:trulycash/features/payments_screen/components/payment_button.dar
 import 'package:trulycash/utils/constants.dart';
 import 'package:trulycash/utils/forms/form_widget.dart';
 import 'package:trulycash/utils/size_config.dart';
+import 'package:trulycash/utils/theme.dart';
 
 class TransactionScreen extends StatefulWidget {
   TransactionScreen({Key key}) : super(key: key);
@@ -26,7 +27,8 @@ class _TransactionScreenState extends State<TransactionScreen> {
         body: SizedBox(
           width: double.infinity,
           child: Container(
-            child: Column(
+            child: ListView(
+              physics: NeverScrollableScrollPhysics(),
               children: [
                 Container(
                     height: SizeConfig.screenHeight * .48,
@@ -36,38 +38,72 @@ class _TransactionScreenState extends State<TransactionScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Form(
-                          child: Column(
-                            children: [
-                              TransactionForm(
-                                label: 'Enter Amount',),
-                              TransactionForm(
-                                icon: 'lib/features/transactions_screens/assets/icons/thai-baht.svg',
-                                label: 'Estimated BTC',),
-                            ],
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: horizontal(size: size * 6)),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Flexible(
+                                  child: Container(
+                                    child: Column(
+                                      children: [
+                                        Text('Enter Amount', style: TextStyle(color: whiteColor, fontSize: size * 1.7, fontWeight: FontWeight.w700),),
+                                        TransacFormField(
+                                          prefixIcon: Padding(
+                                            padding: EdgeInsets.all(10),
+                                            child: SvgPicture.asset(
+                                              'lib/features/transactions_screens/assets/icons/dollar.svg',
+                                              height: size * 3, width: size * 3,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Flexible(
+                                  child: Container(
+                                    margin: EdgeInsets.only(top: size * 2.9, bottom: size * 2),
+                                    child: Column(
+                                      children: [
+                                        Text('Estimated BTC', style: TextStyle(color: whiteColor, fontSize: size * 1.7, fontWeight: FontWeight.w700),),
+                                        TransacFormField(),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         VerticalSpacing(of: inch * 2),
-                        Container(
-                          width: size * 18,
-                          height: size * 4.6,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(inch * 3),
-                              color: Colors.redAccent),
-                          child: Text(
-                            'Next',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: fontSize(size: size * 1.9),
-                              fontWeight: FontWeight.w700,
-                              letterSpacing: .7,
+                        Flexible(
+                          child: Container(
+                            width: size * 18,
+                            height: size * 4.6,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(inch * 3),
+                                color: Colors.redAccent),
+                            child: Text(
+                              'Next',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: fontSize(size: size * 1.9),
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: .7,
+                              ),
                             ),
                           ),
                         ),
                       ],
                     )),
                 VerticalSpacing(of: inch * 2),
-                Expanded(child: SingleChildScrollView(child: btcPrice()))
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: size * 2.9),
+                  child: btcPrice(),
+                )
               ],
             ),
           ),

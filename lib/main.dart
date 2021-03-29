@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trulycash/features/bottom_bar_screens/trulycash_navigation_bar_screen.dart';
 import 'package:trulycash/features/history_screens/history_screen.dart';
+import 'package:trulycash/features/home_screens/home_screen.dart';
 import 'package:trulycash/utils/status_bar.dart';
 import 'package:trulycash/utils/theme.dart';
 

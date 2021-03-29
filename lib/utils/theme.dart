@@ -21,16 +21,21 @@ ThemeData theme() {
   );
 }
 
+
+
+
 InputDecorationTheme inputDecorationTheme() {
   OutlineInputBorder outlineInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(18),
     borderSide: BorderSide(color: kPrimaryColor),
     gapPadding: 12,
   );
+
   UnderlineInputBorder underlineInputBorder = UnderlineInputBorder(
     borderRadius: BorderRadius.circular(18),
     borderSide: BorderSide(color: kPrimaryColor, width: 2.3),
   );
+
   return InputDecorationTheme(
     // If  you are using latest version of flutter then lable text and hint text shown like this
     // if you r using flutter less then 1.20.* then maybe this is not working properly
@@ -53,6 +58,22 @@ InputDecorationTheme inputDecorationTheme() {
     ),
   );
 }
+
+final transactionInputDecoration = InputDecoration(
+  border: UnderlineInputBorder(
+    borderRadius: BorderRadius.circular(18),
+    borderSide: BorderSide(color: Colors.white, width: 2.3),
+  ),
+  enabledBorder: UnderlineInputBorder(
+    borderRadius: BorderRadius.circular(18),
+    borderSide: BorderSide(color: Colors.white, width: 2.3),
+  ),
+
+  focusedBorder: UnderlineInputBorder(
+    borderRadius: BorderRadius.circular(18),
+    borderSide: BorderSide(color: Colors.white, width: 2.3),
+  ),
+);
 
 TextTheme textTheme() {
   return TextTheme(

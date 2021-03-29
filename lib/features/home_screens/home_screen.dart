@@ -1,7 +1,9 @@
 import 'package:flat_icons_flutter/flat_icons_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:trulycash/assets/colors/colors.dart';
+import 'package:trulycash/features/bottom_bar_screens/trulycash_navigation_bar_screen.dart';
 import 'package:trulycash/features/history_screens/components/appbar_leading_btn.dart';
 import 'package:trulycash/features/history_screens/components/header_title.dart';
 import 'package:trulycash/features/home_screens/components/user_avatar.dart';
@@ -19,6 +21,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return SafeArea(
       top: false,
       bottom: false,
@@ -99,6 +102,40 @@ class _HomeScreenState extends State<HomeScreen> {
               )
             ],
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: (index) {
+          },
+          elevation: 0,
+          backgroundColor: Colors.white,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: kPrimaryColor,
+          items: [
+            BottomNavigationBarItem(
+                title: Text('Home', style: TextStyle(color: kPrimaryColor)),
+                icon: SvgPicture.asset(
+                  'lib/features/bottom_bar_screens/assets/icons/home.svg',
+                  height: inch * 3,
+                  width: inch * 3,
+                  color: kPrimaryLightColor,
+                )),
+            BottomNavigationBarItem(
+                title: Text('History', style: TextStyle(color: kPrimaryColor)),
+                icon: SvgPicture.asset(
+                  'lib/features/bottom_bar_screens/assets/icons/history.svg',
+                  height: inch * 3,
+                  width: inch * 3,
+                  color: kPrimaryLightColor,
+                )),
+            BottomNavigationBarItem(
+                title: Text('Settings', style: TextStyle(color: kPrimaryColor)),
+                icon: SvgPicture.asset(
+                  'lib/features/bottom_bar_screens/assets/icons/settings.svg',
+                  height: inch * 3,
+                  width: inch * 3,
+                  color: kPrimaryLightColor,
+                )),
+          ],
         ),
       ),
     );
