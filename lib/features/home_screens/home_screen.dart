@@ -7,6 +7,7 @@ import 'package:trulycash/features/bottom_bar_screens/trulycash_navigation_bar_s
 import 'package:trulycash/features/history_screens/components/appbar_leading_btn.dart';
 import 'package:trulycash/features/history_screens/components/header_title.dart';
 import 'package:trulycash/features/home_screens/components/user_avatar.dart';
+import 'package:trulycash/repository/components/header_button.dart';
 import 'package:trulycash/utils/constants.dart';
 import 'package:trulycash/utils/size_config.dart';
 
@@ -49,32 +50,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontWeight: FontWeight.w600
                     ),),
                     VerticalSpacing(of: inch * 1),
+                    HeaderButton(btnText: '@Username', isItalic: true),
                     Container(
-                      width: size * 18,
-                      height: size * 4.6,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(inch * 3),
-                        color: Colors.redAccent
-                      ),
-                      child: Text('@Username', style: TextStyle(
-                          color: Colors.white,
-                          fontSize: fontSize(size: size * 1.9),
-                          letterSpacing: .7,
-                          fontStyle: FontStyle.italic
-                      ),),
-                    ),
-                    Flexible(
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: inch * 4),
-                        margin: EdgeInsets.only(top: inch * 3, bottom: inch * 3),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            TextIconWidget(),
-                            TextIconWidget(),
-                          ],
-                        ),
+                      padding: EdgeInsets.symmetric(horizontal: inch * 4),
+                      margin: EdgeInsets.only(top: inch * 3, bottom: inch * 3),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TextIconWidget(),
+                          TextIconWidget(),
+                        ],
                       ),
                     )
                   ],

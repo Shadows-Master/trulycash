@@ -27,13 +27,14 @@ class BalanceCard extends StatelessWidget {
         children: [
           Text(title ?? 'BTC', style: TextStyle(
               color: Colors.white,
-              fontSize: fontSize(size: inch * 2.8),
+              fontSize: fontSize(size: inch * 2),
               letterSpacing: .7,
-              fontWeight: FontWeight.w600
+              fontWeight: FontWeight.w400
           ),),
+          VerticalSpacing(of: size * 1.5),
           Text(amount ?? '0.12647', style: TextStyle(
               color: Colors.white,
-              fontSize: fontSize(size: inch * 2.8),
+              fontSize: fontSize(size: inch * 3),
               letterSpacing: .7,
               fontWeight: FontWeight.w600
           ),),
